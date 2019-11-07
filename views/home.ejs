@@ -9,17 +9,47 @@
 </head>
 <body>
     <div class="container">
-        <form action="/" method="POST">
-            <input name="meme" class="ghost-input" type="text" placeholder="Search Meme">
-            <input class="ghost-button" type="submit" value="get meme">
-        </form>
-    </div>
+     <h1 style="text-align:center; font-size:50px"; font-color >Meme Generator!!!</h1>
+     <h1 style="text-align:center; font-size:50px">___</h1>
+     <p style="text-align: center;">Generate memes!</p>
+     <hr>
+     <form role="form">
+     <div class="form-group">
+         <label for="top-text">Meme:</label>
+         <select id="meme" class="form-control">
+                <option>I-Am-Not-A-Gator-Im-A-X</option>
+                <option>Angry-Chicken-Boss</option>
+                <option>Chuck-Norris-Laughing</option>
+                <option>Grumpy-Cat-Happy</option>
+                <option>Kanye-West-at-the-2009-Tribeca-Film-Festival</option>
+                <option>Kill-Yourself-Guy</option>
+                <option>LOL-Guy</option>
+                <option>Obama-Cowboy-Hat</option>
+                <option>Shocked-Ape</option>
+              </select>
+     </div>
+     <div class="form-group">
+         <label for="top-text">Top Text:</label>
+         <input type="text" class="form-control" id="top-text" placeholder="This text will appear on the top of the meme" value="Top text">
+     </div>
+     <div class="form-group">
+         <label for="top-text">Bottom Text:</label>
+         <input type="text" class="form-control" id="bottom-text" placeholder="This text will appear on the bottom of the meme" value="Bottom text">
+     </div>
+     <button type="submit" class="btn btn-primary">Generate Meme</button>
+    </form>
 
-    <% if(error){ %>
-        <p><%= error %></p>
-    <% } else { %>
-        <p><%= meme %></p>
-    <% } %>
+
+   
+      
+
+    </div>
     
+<% if(error){ %>
+    <p><%= error %></p>
+<% } else { %>
+    <img src="<%= meme %>" alt="">
+<% } %>
+
 </body>
 </html> 
