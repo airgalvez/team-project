@@ -4,7 +4,6 @@ const bodyParser = require('body-parser');
 const request = require('request');
 const app = express()
 const apiKey = process.env.APIKEY;
-console.log(process.env.APIKEY);
 //setting view engine
 app.set('view engine', 'ejs');
 // middleware
@@ -19,27 +18,38 @@ app.get('/', function (req, res) {
  res.render('home.ejs', {meme: null, error: null} );
 });
 
-app.post('/whatever-we-want', function(req, res) {
-let err = false;
+app.post('/', function(req, res) {
+  var unirest = require("unirest");
 
-let url = 'http://ronreiter-meme-generator.p.rapidapi.com' + req.body.image + '&units=imperialAPPID=7fc46482fcmshd30f08500e1c439p10f8e3jsnae26ec87a130' + apiKey;
+  var req = unirest("GET", "https://ronreiter-meme-generator.p.rapidapi.com/meme");
+  
+  req.query({
+    "font": "Impact",
+    "font_size": "50",
+    "meme": "Condescending-Wonka",
+    "top": "Top text",
+    "bottom": "Bottom text"
+  });
+  
+  req.headers({
+    "x-rapidapi-host": "ronreiter-meme-generator.p.rapidapi.com",
+    "x-rapidapi-key": apiKey
+  });
+  
+  
+  // //req.end(function (response) {
+  //   if (response.error) throw new Error(response.error);
+  //   // console.log(response.body);
+  //   res.render('home.ejs', {meme: 'http://apimeme.com/meme?meme=Condescending-Wonka&top=Top+text&bottom=Bottom+text&test=1', error: null} );
+  // });
 
- request(url, function (error, response, body) {
-    console.log('error:', error);
-    console.log('statusCode:', response && response.statusCode); 
-    console.log('body:', body);
- if(error){
-   res.render('home.ejs', {meme: null, error: "Error, please try again"})
- } else {
-   let meme = (JSON.parse(body));
-    if(meme.main == undefined){
-     res.render('home.ejs', {meme: null, error: "Error, please try again"})
-   } else {
-     let memeImage = "The meme " + req.body.image + " is " + meme.main.image + " degrees.";
-     res.render('home.ejs', {meme: memeImage, error: null});
-    }
-    }
-});
+  // //req.end(function (response) {
+  //   if (response.error) throw new Error(response.error);
+  //   // console.log(response.body);
+  //   res.render('home.ejs', {meme: 'http://apimeme.com/meme?meme=Hypnotoad&top=Top+text&bottom=Bottom+text&test=1', error: null} );
+  // });
+
+  
 
 });
 
