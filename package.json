@@ -1,7 +1,7 @@
 {
   "name": "meme-generator",
   "version": "1.0.0",
-  "description": "get user input of the meme they want image from",
+  "description": "web app that generates memes",
   "main": "app.js",
   "dependencies": {
     "body-parser": "^1.19.0",
@@ -20,7 +20,7 @@
     "type": "git",
     "url": "git+https://github.com/Rei98/team-project.git"
   },
-  "author": "Rei/Dr aaron",
+  "author": "Rei/Dr. Aaron",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Rei98/team-project/issues"
