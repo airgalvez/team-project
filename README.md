@@ -10,5 +10,3 @@ show the meme image to the user or show error
 
 
 <!-- Testing Pull -->
-
-WTF
