@@ -1,0 +1,6 @@
+  <form action="/" method="POST">
+        <input name="meme" class="ghost-input" type="text" placeholder="Search Meme">
+        <input class="ghost-button" type="submit" value="get meme">
+    </form>
+</div>
+<img src="data:image/jpeg;base64,/<%= meme %>" alt="">
