@@ -10,10 +10,16 @@
 <body>
     <div class="container">
         <form action="/" method="POST">
-            <input name="Meme" class="ghost-input" type="text" placeholder="Search Meme">
+            <input name="meme" class="ghost-input" type="text" placeholder="Search Meme">
             <input class="ghost-button" type="submit" value="get meme">
         </form>
     </div>
+
+    <% if(error){ %>
+        <p><%= error %></p>
+    <% } else { %>
+        <p><%= meme %></p>
+    <% } %>
     
 </body>
 </html> 
